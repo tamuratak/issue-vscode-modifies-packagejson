@@ -23,13 +23,13 @@ async function runTestsOnEachFixture(targetName: 'build' | 'rootfile' | 'viewer'
         })
     }
 
-    for (let testWorkspace of testBuildWorkspaces) {
+//    for (let testWorkspace of testBuildWorkspaces) {
         await runTests({
             version: '1.68.1',
             extensionDevelopmentPath,
             extensionTestsPath,
             launchArgs: [
-                testWorkspace,
+                'test/fixtures/unittest/fixture001',
                 '--user-data-dir=' + tmpdir.name,
                 '--extensions-dir=' + extTmpdir.name,
                 '--lang=C',
@@ -42,8 +42,8 @@ async function runTestsOnEachFixture(targetName: 'build' | 'rootfile' | 'viewer'
                 LATEXWORKSHOP_CI: '1'
             }
         })
-        clearTimeout(nodejsTimeout)
-    }
+//        clearTimeout(nodejsTimeout)
+//    }
 }
 
 async function main() {
