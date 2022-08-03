@@ -24,13 +24,6 @@ async function runTestsOnEachFixture(targetName: 'build' | 'rootfile' | 'viewer'
     }
 
     for (let testWorkspace of testBuildWorkspaces) {
-        if (testWorkspace.includes('multiroot-ws')) {
-            testWorkspace += '/resource.code-workspace'
-        }
-        const nodejsTimeout = setTimeout(() => {
-            console.log('runTestsOnEachFixture: Time out')
-            process.exit(1)
-        }, process.env.CI ? 600000 : 60000)
         await runTests({
             version: '1.68.1',
             extensionDevelopmentPath,
