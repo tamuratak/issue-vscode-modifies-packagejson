@@ -68,23 +68,6 @@ export async function printLogMessages() {
 //    console.log(compilerLogMessage)
 }
 
-export async function execCommandThenPick(
-    command: () => Thenable<unknown>,
-    pick: () => Thenable<undefined>
-) {
-    let done = false
-    setTimeout(async () => {
-        while (!done) {
-            await pick()
-            await sleep(1000)
-        }
-    }, 3000)
-    await command()
-    done = true
-}
-
-
-
 export function isDockerEnabled() {
     return process.env['LATEXWORKSHOP_CI_ENABLE_DOCKER'] ? true : false
 }
