@@ -10,7 +10,6 @@ async function runTestsOnEachFixture() {
         extensionDevelopmentPath,
         extensionTestsPath,
         launchArgs: [
-            'test/fixtures/unittest/fixture001',
             '--lang=C',
             '--disable-keytar',
             '--disable-telemetry',
