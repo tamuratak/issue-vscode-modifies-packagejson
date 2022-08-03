@@ -1,7 +1,5 @@
 import * as path from 'path'
 import * as process from 'process'
-import * as glob from 'glob'
-import * as tmpFile from 'tmp'
 import { runTests } from '@vscode/test-electron'
 import { getExtensionDevelopmentPath } from './utils/runnerutils'
 
@@ -9,41 +7,22 @@ import { getExtensionDevelopmentPath } from './utils/runnerutils'
 async function runTestsOnEachFixture(targetName: 'build' | 'rootfile' | 'viewer' | 'completion' | 'multiroot-ws' | 'unittest') {
     const extensionDevelopmentPath = getExtensionDevelopmentPath()
     const extensionTestsPath = path.resolve(__dirname, `./${targetName}.index`)
-    const tmpdir = tmpFile.dirSync({ unsafeCleanup: true })
-    const extTmpdir = tmpFile.dirSync({ unsafeCleanup: true })
-    const fixtures = glob.sync(`test/fixtures/${targetName}/*`, { cwd: extensionDevelopmentPath })
-
-    let testBuildWorkspaces: string[] = []
-    const fixturePatterns = process.argv.slice(2).filter(s => !/^-/.exec(s))
-    if (fixturePatterns.length === 0) {
-        testBuildWorkspaces = fixtures
-    } else {
-        testBuildWorkspaces = fixtures.filter( fixture => {
-            return fixturePatterns.some( pat => fixture.includes(pat) )
-        })
-    }
-
-//    for (let testWorkspace of testBuildWorkspaces) {
-        await runTests({
-            version: '1.68.1',
-            extensionDevelopmentPath,
-            extensionTestsPath,
-            launchArgs: [
-                'test/fixtures/unittest/fixture001',
-                '--user-data-dir=' + tmpdir.name,
-                '--extensions-dir=' + extTmpdir.name,
-                '--lang=C',
-                '--disable-keytar',
-                '--disable-telemetry',
-                '--disable-gpu'
-            ],
-            extensionTestsEnv: {
-                LATEXWORKSHOP_CI_ENABLE_DOCKER: process.argv.includes('--enable-docker') ? '1' : undefined,
-                LATEXWORKSHOP_CI: '1'
-            }
-        })
-//        clearTimeout(nodejsTimeout)
-//    }
+    await runTests({
+        version: '1.68.1',
+        extensionDevelopmentPath,
+        extensionTestsPath,
+        launchArgs: [
+            'test/fixtures/unittest/fixture001',
+            '--lang=C',
+            '--disable-keytar',
+            '--disable-telemetry',
+            '--disable-gpu'
+        ],
+        extensionTestsEnv: {
+            LATEXWORKSHOP_CI_ENABLE_DOCKER: process.argv.includes('--enable-docker') ? '1' : undefined,
+            LATEXWORKSHOP_CI: '1'
+        }
+    })
 }
 
 async function main() {
