@@ -42,17 +42,3 @@ function getWorkspaceRootDir(): string | undefined {
         })
     }
 }
-
-export async function printLogMessages() {
-//    await vscode.commands.executeCommand('latex-workshop.log')
-    await sleep(1000)
-//    await vscode.commands.executeCommand('workbench.action.output.toggleOutput')
-    await sleep(1000)
-//    const logMessage = vscode.window.activeTextEditor?.document.getText()
-//    console.log(logMessage)
-//    await vscode.commands.executeCommand('latex-workshop.log', true)
-    await sleep(1000)
-//    const compilerLogMessage = vscode.window.activeTextEditor?.document.getText()
-//    console.log(compilerLogMessage)
-}
-
