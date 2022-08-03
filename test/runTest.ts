@@ -1,12 +1,10 @@
 import * as path from 'path'
 import * as process from 'process'
 import { runTests } from '@vscode/test-electron'
-import { getExtensionDevelopmentPath } from './utils/runnerutils'
 
-
-async function runTestsOnEachFixture(targetName: 'build' | 'rootfile' | 'viewer' | 'completion' | 'multiroot-ws' | 'unittest') {
-    const extensionDevelopmentPath = getExtensionDevelopmentPath()
-    const extensionTestsPath = path.resolve(__dirname, `./${targetName}.index`)
+async function runTestsOnEachFixture() {
+    const extensionDevelopmentPath = path.resolve(__dirname, '..', '..')
+    const extensionTestsPath = path.resolve(__dirname, `./unittest.index`)
     await runTests({
         version: '1.68.1',
         extensionDevelopmentPath,
@@ -27,7 +25,7 @@ async function runTestsOnEachFixture(targetName: 'build' | 'rootfile' | 'viewer'
 
 async function main() {
     try {
-        await runTestsOnEachFixture('unittest')
+        await runTestsOnEachFixture()
     } catch (err) {
         console.error('Failed to run tests')
         process.exit(1)
