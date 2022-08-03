@@ -1,64 +1,58 @@
 {
-	"name": "latex-workshop",
-	"displayName": "LaTeX Workshop",
-	"description": "Boost LaTeX typesetting efficiency with preview, compile, autocomplete, colorize, and more.",
-	"icon": "icons/icon.png",
-	"version": "8.28.0",
-	"publisher": "James-Yu",
-	"license": "MIT",
-	"homepage": "https://github.com/James-Yu/LaTeX-Workshop",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/James-Yu/LaTeX-Workshop.git"
-	},
-	"engines": {
-		"vscode": "^1.67.0"
-	},
-	"activationEvents": [
-		"onCommand:latex-workshop.activate"
-	],
-	"main": "./out/src/main.js",
-	"contributes": {
-		"commands": [
-			{
-				"command": "latex-workshop.log",
-				"title": "Show LaTeX Workshop messages",
-				"category": "LaTeX Workshop"
-			}
-		]
-	},
-	"scripts": {
-		"clean": "rimraf out/ .eslintcache",
-		"compile": "tsc -p tsconfig.json && tsc -p viewer/tsconfig.json",
-		"lint": "eslint --cache --ext .ts,.js .",
-		"lint:fix": "eslint --fix --cache --ext .ts,.js .",
-		"release": "npm run clean && npm run lint && npm run compile && vsce package",
-		"test": "node ./out/test/runTest.js",
-		"watch-src": "tsc -watch -p tsconfig.json",
-		"watch-viewer": "tsc -watch -p viewer/tsconfig.json"
-	},
-	"dependencies": {
-		"glob": "7.2.0",
-		"micromatch": "4.0.4",
-		"tmp": "0.2.1"
-	},
-	"devDependencies": {
-		"@types/glob": "7.2.0",
-		"@types/micromatch": "4.0.2",
-		"@types/mocha": "9.1.1",
-		"@types/node": "16.11.39",
-		"@types/tmp": "0.2.3",
-		"@types/vscode": "1.67.0",
-		"@vscode/test-electron": "2.1.5",
-		"mocha": "9.2.2",
-		"rimraf": "3.0.2",
-		"typescript": "4.7.4",
-		"vsce": "2.9.2"
-	},
-	"__metadata": {
-		"id": "61d03280-3919-4dd1-bce1-178ca21fdeaf",
-		"publisherDisplayName": "James Yu",
-		"publisherId": "acd591bd-fa80-4809-bdbd-28c80bed19ec",
-		"isPreReleaseVersion": false
-	}
+  "name": "latex-workshop",
+  "displayName": "LaTeX Workshop",
+  "description": "Boost LaTeX typesetting efficiency with preview, compile, autocomplete, colorize, and more.",
+  "icon": "icons/icon.png",
+  "version": "8.28.0",
+  "publisher": "James-Yu",
+  "license": "MIT",
+  "homepage": "https://github.com/James-Yu/LaTeX-Workshop",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/James-Yu/LaTeX-Workshop.git"
+  },
+  "engines": {
+    "vscode": "^1.67.0"
+  },
+  "activationEvents": [
+    "onCommand:latex-workshop.activate"
+  ],
+  "main": "./out/src/main.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "latex-workshop.log",
+        "title": "Show LaTeX Workshop messages",
+        "category": "LaTeX Workshop"
+      }
+    ]
+  },
+  "scripts": {
+    "clean": "rimraf out/ .eslintcache",
+    "compile": "tsc -p tsconfig.json && tsc -p viewer/tsconfig.json",
+    "lint": "eslint --cache --ext .ts,.js .",
+    "lint:fix": "eslint --fix --cache --ext .ts,.js .",
+    "release": "npm run clean && npm run lint && npm run compile && vsce package",
+    "test": "node ./out/test/runTest.js",
+    "watch-src": "tsc -watch -p tsconfig.json",
+    "watch-viewer": "tsc -watch -p viewer/tsconfig.json"
+  },
+  "dependencies": {
+    "glob": "7.2.0",
+    "micromatch": "4.0.4",
+    "tmp": "0.2.1"
+  },
+  "devDependencies": {
+    "@types/glob": "7.2.0",
+    "@types/micromatch": "4.0.2",
+    "@types/mocha": "9.1.1",
+    "@types/node": "16.11.39",
+    "@types/tmp": "0.2.3",
+    "@types/vscode": "1.67.0",
+    "@vscode/test-electron": "2.1.5",
+    "mocha": "9.2.2",
+    "rimraf": "3.0.2",
+    "typescript": "4.7.4",
+    "vsce": "2.9.2"
+  }
 }
