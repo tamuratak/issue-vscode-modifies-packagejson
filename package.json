@@ -15,18 +15,9 @@
     "vscode": "^1.67.0"
   },
   "activationEvents": [
-    "onCommand:latex-workshop.activate"
+    "*"
   ],
   "main": "./out/src/main.js",
-  "contributes": {
-    "commands": [
-      {
-        "command": "latex-workshop.log",
-        "title": "Show LaTeX Workshop messages",
-        "category": "LaTeX Workshop"
-      }
-    ]
-  },
   "scripts": {
     "clean": "rimraf out/",
     "compile": "tsc -p tsconfig.json",
