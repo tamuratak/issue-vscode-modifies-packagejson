@@ -17,13 +17,9 @@
         "sourceMap": true,
         "strict": true,
         "target": "es2021",
-        "baseUrl": "./",
-        "paths": {
-            "mathjax-full": ["types/mathjax-full"]
-        }
+        "baseUrl": "./"
     },
     "exclude": [
-        "node_modules",
-        "viewer"
+        "node_modules"
     ]
 }
