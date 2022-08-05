@@ -11,22 +11,12 @@
             "isBackground": true,
             "presentation": {
                 "reveal": "never",
-                "group": "buildWatchers"
             },
-            "group": "build",
-            "detail": "Watch ./src"
-        },
-        {
-            "label": "task-watch-all",
-            "dependsOn": [
-                "task-watch-src",
-            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "Watch ./src",
-            "problemMatcher": []
+            "detail": "Watch ./src"
         }
     ]
 }
