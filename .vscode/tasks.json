@@ -4,9 +4,9 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "task-watch-src",
+            "label": "task-watch",
             "type": "npm",
-            "script": "watch-src",
+            "script": "watch",
             "problemMatcher": "$tsc-watch",
             "isBackground": true,
             "presentation": {
